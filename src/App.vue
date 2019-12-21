@@ -1,28 +1,72 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header></Header>
+    <MessageIconForSmallScreen class="sm-message-icon"/>
+
+    <div class="row">
+      <div class="col-lg-2 col-md-3 col-sm-12">
+        <Nav class="nav-desktop"></Nav>
+        <SocialMediaLink class="socials-desktop"></SocialMediaLink>
+      </div>
+      <div class="col-lg-10 col-md-9 col-sm-12 view">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Header from './components/Header.vue'
+  import Nav from './components/Nav.vue'
+  import SocialMediaLink from './components/SocialMediaLink.vue'
+  import MessageIconForSmallScreen from './components/MessageIcon.vue'
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  export default {
+    name: 'app',
+    components: {
+      Header,
+      MessageIconForSmallScreen,
+      Nav,
+      SocialMediaLink
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .row{
+    width: 100%;
+    margin: 2em 0;
+  }
+
+  .sm-message-icon{
+    display: none;
+  }
+
+  .socials-desktop{
+    /* position: absolute;
+    bottom: 2em; */
+  }
+
+  /* MOBILE VIEW STYLING */
+  @media screen and (max-width: 450px){
+    .row{
+      margin: 0 0;
+    }
+
+    .sm-message-icon{
+      display: block;
+    }
+
+    .nav-desktop{
+      display: none;
+    }
+
+    .view{
+      padding: 0px;
+    }
+
+    .socials-desktop{
+      display: none;
+    }
+  }
 </style>

@@ -1,4 +1,4 @@
-# first-vue-project
+# havene-site
 
 ## Project setup
 ```
